@@ -1,0 +1,97 @@
+*{
+    box-sizing: border-box;
+}
+.form-contaner{
+    width: 30vw;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    border:1px solid white;
+    padding: 20px;
+   
+}
+
+/* h1 */
+.form-contaner > h1{
+    color: white;
+    font-family: 'Arial', sans-serif;
+}
+
+.form-contaner > form{
+   gap : 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+/* input */
+.form-contaner > form input{
+    width: 100%;
+    height: 50px;
+    /* margin-top: 10px; */
+    padding: 10px;
+    border-radius: 3px;
+    border: none;
+}
+.form-contaner > form .title{
+ 
+    cursor: pointer;
+  
+}
+.form-contaner > form .msg{
+    height: 120px;
+    cursor: pointer;
+  
+}
+
+
+
+
+
+
+
+
+
+/* image */
+.form-contaner > form > .image{
+    color: white;
+    cursor: pointer;
+    width: 100%;
+;
+}
+
+/* btns */
+.form-contaner > form button{
+    width: 100%;
+    height: 40px;
+    /* margin: 10px; */
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+}
+
+.form-contaner > form > .submit-btn{
+    background-color: #477be3;
+    color: white;
+    cursor: pointer;
+}
+.form-contaner > form  .submit-btn:hover{
+    background-color: #144db7;
+    color: white;
+    cursor: pointer;
+}
+.form-contaner > form > .clear-btn{
+    background-color: #c52819;
+    color: white;
+    cursor: pointer;
+}
+.form-contaner > form  .clear-btn:hover{
+    background-color: #801414;
+    color: white;
+    cursor: pointer;
+}

@@ -1,0 +1,22 @@
+body{
+    background-color: #282c34
+}
+.app-bar{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.app-heading{
+    font-size: 2em;
+    color: white;
+    margin: 0;
+    padding: 20px;
+    background-color: #282c34;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.app-bar > img {
+    height: 40px;
+    margin: 10px;
+    cursor: pointer;
+}

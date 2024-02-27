@@ -2,24 +2,25 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 
-const PORT = 3000;
+const PORT = 3001;
 
 //imports from local 
 import connectDB from './src/DB/index.js';
 
 //import routes
-import testRoute from './src/Routes/test.route.js';
+import PostsRoute from './src/Routes/Posts.Route.js';
 
 //middlewares
 const app = express();
 
-app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(cors());
 
 
-app.use(testRoute);
+app.use(PostsRoute);
 
-app.get('/',testRoute);
+app.get('/',PostsRoute);
+app.post('/',PostsRoute);
 
 
 
