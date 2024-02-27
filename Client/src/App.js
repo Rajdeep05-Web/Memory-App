@@ -1,4 +1,5 @@
-import React from "react";
+import React, {useEffect} from "react";
+import {useDispatch} from "react-redux";
 
 import memories from "./images/memories.png";
 
@@ -8,7 +9,20 @@ import Form from "./Components/Forms/Form";
 
 import './App.css'
 
+//redux actions
+import {getPosts} from "./actions/posts";
+
+
+//redux dispatch action
+
 const App = () => {
+
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getPosts());
+  }, [dispatch])
+
+  
     return (
             <div className="App">
             <div className="container">

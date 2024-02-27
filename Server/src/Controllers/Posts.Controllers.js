@@ -1,5 +1,7 @@
 import PostMessageModel from "../Models/PostMessage.js";
 
+
+
 export const getPosts =async (req, res) => {
    try {
      const postMessages = await PostMessageModel.find();
@@ -10,6 +12,8 @@ export const getPosts =async (req, res) => {
     res.status(404).json({message: error.message});
    }
 }
+
+
 export const createPosts =async (req, res) => {
 
     const post = req.body;
