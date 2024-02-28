@@ -17,6 +17,7 @@
 .form-contaner > h1{
     color: white;
     font-family: 'Arial', sans-serif;
+    height: 10%;
 }
 
 .form-contaner > form{
@@ -26,7 +27,7 @@
     justify-content: space-around;
     align-items: center;
     width: 100%;
-    height: 100%;
+    height: 90%;
 }
 
 /* input */
@@ -38,15 +39,9 @@
     border-radius: 3px;
     border: none;
 }
-.form-contaner > form .title{
- 
-    cursor: pointer;
-  
-}
+
 .form-contaner > form .msg{
-    height: 120px;
-    cursor: pointer;
-  
+    height: 100px;
 }
 
 
