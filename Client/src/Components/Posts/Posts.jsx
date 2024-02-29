@@ -17,7 +17,10 @@ import Post from "./Post/Post";//importing the Post component
         <div className="posts">
         <Post/>
         <Post/>
-        {/* <h1>Posts</h1> */}
+        
+
+ 
+       
         </div>
         </>
     )

@@ -1,4 +1,6 @@
 .posts{
-    border: 1px solid white;
+    display: flex;
+    border: 1px solid rgb(190, 56, 56);
     flex: 1;
+    flex-direction: row;
 }
