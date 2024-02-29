@@ -2,10 +2,10 @@
     /* border: 1px solid green; */
     height: 500px;
     flex:0;
-    flex-basis: 400px;
+    flex-basis: 350px;
     margin: 20px;
     border-radius: 10px;
-    background-color:rgb(209, 219, 252) ;
+    background-color:rgb(242, 245, 255) ;
     font-family: 'verdana';
     position: relative;
 
@@ -15,9 +15,10 @@
     width: 100%;
     height: 200px;
     border-radius: 10px 10px 0 0;
- 
+    /* object-fit: cover; */
     filter: brightness(50%);
 }
+
 
 .create-detail{
     position: absolute;
@@ -25,12 +26,15 @@
     color: white;
     left: 20px;
     margin: 20px 0px;
+    width: 150px;
 }
 .create-detail > h3{
     font-weight: 600;
     padding: 0;
     margin: 0;
     font-size: 22px;
+    overflow-wrap: break-word;
+   
 }
 .create-detail > h6{
     font-size: 13px;
@@ -39,6 +43,7 @@
     margin-top: 8px;
 }
 
+/* post detail */
 .card .post-detail{
     margin: 10px 20px;
 }
@@ -65,3 +70,29 @@
 }
 
 
+/* btn */
+.card .btn{
+    bottom: 20px;
+    left: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin: 0px 0px;
+}
+.card .btn .like-btn{
+    background-color: #477be3;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+  
+}
+.card .btn .delete-btn{
+    background-color: #e34a4a;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}

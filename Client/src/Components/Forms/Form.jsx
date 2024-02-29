@@ -19,7 +19,7 @@ const Form = () => {
        dispatch(createPost(postData));
    }
    const clearHandler = () => {}
-   const submitHandler = () => {}
+
 
     return(
         <>
@@ -46,7 +46,7 @@ const Form = () => {
                     </FileBase>
                     </div>
 
-                   <button type="submit" className="submit-btn" onClick={submitHandler}> Submit</button>
+                   <button type="submit" className="submit-btn"> Submit</button>
                    <button type="clear" className="clear-btn" onClick={clearHandler}>Clear</button>
             </form> 
         </div>

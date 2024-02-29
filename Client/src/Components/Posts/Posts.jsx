@@ -15,8 +15,9 @@ import Post from "./Post/Post";//importing the Post component
     return(
         <>
         <div className="posts">
-        <Post/>
-        <Post/>
+        {
+            posts.length === 0 ? <h1>No posts</h1> : posts.map( (post)=><Post post={post} key={post._id}/> )
+         }
         
 
  

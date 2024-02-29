@@ -19,9 +19,10 @@ const App = () => {
 
   const dispatch = useDispatch();
   
-  useEffect(() => {
-    dispatch(getPosts());
-  }, [dispatch])
+  useEffect(() => {//useEffect to dispatch action when the component mounts
+    dispatch(getPosts());//dispatch action to get posts
+  });//no dependency array means it will run only once when the component mounts(rendered for the first time) and on every re-render
+
 
   
     return (

@@ -26,11 +26,15 @@ export const getPosts = () => async (dispatch) => {//getPosts is a function that
 
 export const createPost = (post) => async (dispatch) => {
 try {
+
     const {data} = await api.createPosts(post);//Creating posts from the api
+
     console.log(data);
 
     dispatch({type: "CREATE", payload: data});
+    
 } catch (error) {
+    
     console.log(error.message);
     
 }
