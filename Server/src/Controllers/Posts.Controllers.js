@@ -18,7 +18,7 @@ export const createPosts =async (req, res) => {
 
     const post = req.body;
 
-    const newPost =new PostMessageModel(post);
+    const newPost = new PostMessageModel(post);
 
     try {
 

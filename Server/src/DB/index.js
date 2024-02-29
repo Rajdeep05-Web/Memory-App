@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 const URI = "mongodb://localhost:27017";
-const DB_NAME = "Memory App";
+const DB_NAME = "MemoryApp";
 
 const connectDB = async () => {
     mongoose.connect(`${URI}/${DB_NAME}`)

@@ -9,7 +9,7 @@ import Post from "./Post/Post";//importing the Post component
 
  const Posts = () => {
 
-    const posts = useSelector( (state) => state.posts )
+    const posts = useSelector( (state) => state.posts )//using the useSelector hook to get the posts from the state store of redux
     console.log(posts);
 
     return(
