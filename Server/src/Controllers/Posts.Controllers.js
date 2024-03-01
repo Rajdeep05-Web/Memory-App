@@ -2,7 +2,7 @@ import PostMessageModel from "../Models/PostMessage.js";
 import mongoose from "mongoose";
 
 
-export const getPosts =async (req, res) => {
+export const getPosts =async (req, res) => { 
    try {
      const postMessages = await PostMessageModel.find();
         res.send(postMessages).status(200);
@@ -57,5 +57,27 @@ export const updatePosts = async (req, res) => {
     
    }
 
+}
+
+export const deletePosts = async (req, res) => {
+
+   const {id : _id} = req.params;
+
+   if(!mongoose.Types.ObjectId.isValid(_id)) return res.status(404).send('No post with that id');//check if the id is valid
+
+   try {
+      const response = await PostMessageModel.findByIdAndDelete(_id);
+
+      if(response){ res.json({message: 'Post deleted successfully'}).status(200); 
+
+      } else { res.status(400).json({message: 'Post not found'}); }
+      
+   } catch (error) {
+
+      console.log(error);
+
+      res.status(404).json({message: error.message});
+      
+   }
 }
 
