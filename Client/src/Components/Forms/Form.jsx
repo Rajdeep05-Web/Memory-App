@@ -30,10 +30,7 @@ const Form = ( {updatePost, setUpdatePost} ) => {
         if(updatePost){
             
             dispatch(updatePostFn(updatePost._id, postData));
-
-            setPostData({
-                "creator":'' , "title": '', "message": '', "tags": [], "selectedFile": ''
-            })
+            clearHandler();
 
             setUpdatePost(null);
 
@@ -41,17 +38,16 @@ const Form = ( {updatePost, setUpdatePost} ) => {
        } else {
 
            dispatch(createPost(postData));
-
-           setPostData({
-            "creator":'' , "title": '', "message": '', "tags": [], "selectedFile": ''
-        })
+           clearHandler();
 
        }
     }
 
 
 
-   const clearHandler = () => {}
+   const clearHandler = () => {
+    setPostData({ "creator":'' , "title": '', "message": '', "tags": [], "selectedFile": '' })
+   }
 
 
  
@@ -62,7 +58,7 @@ const Form = ( {updatePost, setUpdatePost} ) => {
         {/* <h1>Form</h1> */}
         <div className="form-contaner">
             <h1>{updatePost?"Update":"Create"} a Memory</h1>
-            <form onSubmit={handleSubmit}>
+            <form>
                    
                     <input className="creator" type="text" id="creator" name="creator" placeholder="Creator" 
                     value={postData.creator} onChange={(e) => setPostData({...postData, "creator":e.target.value})}></input>
@@ -82,8 +78,9 @@ const Form = ( {updatePost, setUpdatePost} ) => {
                     </FileBase>
                     </div>
 
-                   <button type="submit" className="submit-btn"> Submit</button>
+                   <button type="submit" className="submit-btn" onClick={handleSubmit}> Submit</button>
                    <button type="clear" className="clear-btn" onClick={clearHandler}>Clear</button>
+                   
             </form> 
         </div>
         </>

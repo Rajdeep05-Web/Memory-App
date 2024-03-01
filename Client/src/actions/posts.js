@@ -56,3 +56,18 @@ export const updatePostFn = (_id, postData) => async (dispatch) => {
   }
 
 }
+export const deletePostFn = (_id) => async (dispatch) => {
+
+  try {
+
+    const {message} = await api.deletePosts(_id);//Updating posts from the api
+
+    dispatch({type: "DELETE", payload:message._id});
+
+  } catch (error) {
+
+    console.log(error.message);
+    
+  }
+
+}

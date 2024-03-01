@@ -1,14 +1,25 @@
 import React from "react";
+import  {useDispatch}  from "react-redux";
+
+import {getPosts, deletePostFn} from "../../../actions/posts.js";
 
 import './style.css';
 // import img from "./miami.jpg";
 
  const Post = ({post, setUpdatePost}) => {
 
+    const dispatch = useDispatch();
+
     const editHandler = () => {
-        alert("Edit");
         setUpdatePost(post);
     }
+    const deleteHandler = () => {
+        
+        dispatch(deletePostFn(post._id));
+        dispatch(getPosts());
+
+    }
+
     return(
         <>
        <div className="card">
@@ -26,7 +37,7 @@ import './style.css';
                 <p className="msg">{post.message}</p>
                 <div className="btn">
                     <button className="like-btn">Like {post.likeCount} </button>
-                    <button className="delete-btn">Delete</button>
+                    <button className="delete-btn" onClick={  ()=>deleteHandler()  }>Delete</button>
                     <button className="edit-btn" onClick={()=>editHandler()}>Edit</button>
                 </div>
             </div>
