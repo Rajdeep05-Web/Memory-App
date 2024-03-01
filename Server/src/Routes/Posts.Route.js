@@ -6,6 +6,6 @@ router.get('/get',getPosts)//get posts
 
 router.post('/post',createPosts)//create post
 
-router.patch('/patch/:id', updatePosts)//update post
+router.patch('/update/:id', updatePosts)//update post
 
 export default router;

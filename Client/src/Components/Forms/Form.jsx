@@ -1,31 +1,67 @@
 import React from "react";
 import FileBase from "react-file-base64";//importing the FileBase component
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";//useDispatch is a hook that returns a reference to the dispatch function from the Redux store
 
 import "./style.css";
-import {createPost} from "../../actions/posts.js";
+import {createPost,  updatePostFn} from "../../actions/posts.js";
 
-const Form = () => {
+const Form = ( {updatePost, setUpdatePost} ) => {
 
+    //usestates
     const [postData, setPostData] = useState({
         "creator":'' , "title": '', "message": '', "tags": [], "selectedFile": ''
     })
+    //dispatch instance
     const dispatch = useDispatch();//dispatch is a function of the Redux store. You call store.dispatch to dispatch an action. This is the only way to trigger a state change.
+    //const newUpdatedPost = useSelector((state)=> updatePost ? state.posts.find( (p)=> p._id === updatePost._id ) : null)
+    
+    useEffect(() => {//it shows the old data in the form when the post have to update
+        if(updatePost){
+            setPostData( updatePost);
+        }
+    },[updatePost])
+    
+    //event handler
+    const handleSubmit = (e) => {
+        
+        e.preventDefault();
+        
+        if(updatePost){
+            
+            dispatch(updatePostFn(updatePost._id, postData));
 
-   //event handler
-   const handleSubmit = (e) => {
-       e.preventDefault();
-       dispatch(createPost(postData));
-   }
+            setPostData({
+                "creator":'' , "title": '', "message": '', "tags": [], "selectedFile": ''
+            })
+
+            setUpdatePost(null);
+
+                 
+       } else {
+
+           dispatch(createPost(postData));
+
+           setPostData({
+            "creator":'' , "title": '', "message": '', "tags": [], "selectedFile": ''
+        })
+
+       }
+    }
+
+
+
    const clearHandler = () => {}
+
+
+ 
 
 
     return(
         <>
         {/* <h1>Form</h1> */}
         <div className="form-contaner">
-            <h1>Create a Memory</h1>
+            <h1>{updatePost?"Update":"Create"} a Memory</h1>
             <form onSubmit={handleSubmit}>
                    
                     <input className="creator" type="text" id="creator" name="creator" placeholder="Creator" 
@@ -42,7 +78,7 @@ const Form = () => {
                    
                     <div className="file"> 
                     <FileBase
-                        type="file" mulitple={false} onDone={({base64}) => setPostData({...postData, selectedFile: base64})}>
+                        type="file" mulitple={false} placeholder="kkk" onDone={({base64}) => setPostData({...postData, selectedFile: base64})}>
                     </FileBase>
                     </div>
 

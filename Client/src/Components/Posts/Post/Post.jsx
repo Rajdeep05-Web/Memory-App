@@ -3,10 +3,11 @@ import React from "react";
 import './style.css';
 // import img from "./miami.jpg";
 
- const Post = ({post}) => {
+ const Post = ({post, setUpdatePost}) => {
 
     const editHandler = () => {
-        
+        alert("Edit");
+        setUpdatePost(post);
     }
     return(
         <>
@@ -26,7 +27,7 @@ import './style.css';
                 <div className="btn">
                     <button className="like-btn">Like {post.likeCount} </button>
                     <button className="delete-btn">Delete</button>
-                    <button className="edit-btn" onClick={()=>editHandler}>Edit</button>
+                    <button className="edit-btn" onClick={()=>editHandler()}>Edit</button>
                 </div>
             </div>
           

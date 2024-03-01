@@ -40,3 +40,19 @@ try {
 }
 
 }
+
+export const updatePostFn = (_id, postData) => async (dispatch) => {
+
+  try {
+
+    const {data} = await api.updatePosts(_id, postData);//Updating posts from the api
+
+    dispatch({type: "UPDATE", payload:data});
+
+  } catch (error) {
+
+    console.log(error.message);
+    
+  }
+
+}

@@ -1,5 +1,5 @@
 import PostMessageModel from "../Models/PostMessage.js";
-
+import mongoose from "mongoose";
 
 
 export const getPosts =async (req, res) => {
@@ -43,13 +43,19 @@ export const updatePosts = async (req, res) => {
     const {id : _id} = req.params;
     const post = req.body;
 
-    if(!moongose.Types.ObjectId.isValid(_id)) {return res.status(404).send('No post with that id')};//check if the id is valid
+    if(!mongoose.Types.ObjectId.isValid(_id)) {return res.status(404).send('No post with that id')};//check if the id is valid
 
-    const updateddata = await PostMessageModel.findOneAndUpdate( _id, post, 
+   try {
+    const updatedData = await PostMessageModel.findOneAndUpdate( {_id}, post, 
       {new: true}//return the new data
     )
 
-    res.json(updateddata).status(200);
+    res.json(updatedData).status(200);
+   } catch (error) {
+      console.log(error);
+      res.status(404).json({message: error.message});
+    
+   }
 
 }
 

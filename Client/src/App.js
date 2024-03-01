@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import {useDispatch} from "react-redux";
 
 import memories from "./images/memories.png";
@@ -17,6 +17,8 @@ import {getPosts} from "./actions/posts";
 
 const App = () => {
 
+  const [updatePost, setUpdatePost] = useState(null);//state to store the post to be updated
+
   const dispatch = useDispatch();
   
   useEffect(() => {//useEffect to dispatch action when the component mounts
@@ -34,10 +36,10 @@ const App = () => {
                 </section>
                 <section className="app-body">
                     <section className="posts">
-                      <Posts/>
+                      <Posts setUpdatePost={setUpdatePost} />
                     </section>
                     <section className="form">
-                      <Form/>
+                      <Form updatePost={updatePost} setUpdatePost={setUpdatePost}/>
                     </section>
                 </section>
 

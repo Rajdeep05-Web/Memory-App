@@ -7,7 +7,7 @@ import "./style.css";//importing the css file
 import Post from "./Post/Post";//importing the Post component
 
 
- const Posts = () => {
+ const Posts = ({setUpdatePost}) => {
 
     const posts = useSelector( (state) => state.posts )//using the useSelector hook to get the posts from the state store of redux
     console.log(posts);
@@ -16,7 +16,7 @@ import Post from "./Post/Post";//importing the Post component
         <>
         <div className="posts">
         {
-            posts.length === 0 ? <h1>No posts</h1> : posts.map( (post)=><Post post={post} key={post._id}/> )
+            posts.length === 0 ? <h1>No posts</h1> : posts.map( (post)=><Post post={post} key={post._id} setUpdatePost={setUpdatePost} /> )
          }
         
 
