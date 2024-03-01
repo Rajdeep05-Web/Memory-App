@@ -1,7 +1,7 @@
 import React from "react";
 import  {useDispatch}  from "react-redux";
 
-import {getPosts, deletePostFn} from "../../../actions/posts.js";
+import { deletePostFn} from "../../../actions/posts.js";
 
 import './style.css';
 // import img from "./miami.jpg";
@@ -16,7 +16,6 @@ import './style.css';
     const deleteHandler = () => {
         
         dispatch(deletePostFn(post._id));
-        dispatch(getPosts());
 
     }
 

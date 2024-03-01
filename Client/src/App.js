@@ -18,11 +18,14 @@ import {getPosts} from "./actions/posts";
 const App = () => {
 
   const [updatePost, setUpdatePost] = useState(null);//state to store the post to be updated
+ 
 
   const dispatch = useDispatch();
   
+
+  //importent
   useEffect(() => {//useEffect to dispatch action when the component mounts
-    dispatch(getPosts());//dispatch action to get posts
+    dispatch(getPosts());//it dispatches the getPosts action to get the posts from the server and updates the state of the redux store. So then the useSelector hook in the Posts component can get the posts from the state store of redux.
   });//no dependency array means it will run only once when the component mounts(rendered for the first time) and on every re-render
 
 

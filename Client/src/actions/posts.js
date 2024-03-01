@@ -29,8 +29,6 @@ try {
 
     const {data} = await api.createPosts(post);//Creating posts from the api
 
-    console.log(data);
-
     dispatch({type: "CREATE", payload: data});
     
 } catch (error) {
@@ -47,6 +45,8 @@ export const updatePostFn = (_id, postData) => async (dispatch) => {
 
     const {data} = await api.updatePosts(_id, postData);//Updating posts from the api
 
+    console.log("data after update",data);
+
     dispatch({type: "UPDATE", payload:data});
 
   } catch (error) {
@@ -60,9 +60,11 @@ export const deletePostFn = (_id) => async (dispatch) => {
 
   try {
 
-    const {message} = await api.deletePosts(_id);//Updating posts from the api
+    const {data} = await api.deletePosts(_id);//Updating posts from the api
 
-    dispatch({type: "DELETE", payload:message._id});
+    console.log("ssss",data);
+
+    dispatch({type: "DELETE", payload:data._id});
 
   } catch (error) {
 
