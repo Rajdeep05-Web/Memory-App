@@ -11,6 +11,8 @@ const reducer = (posts = [], action) =>  {
         return [...posts, action.payload];
       case 'DELETE':
         return posts.filter( (post) => post._id !== action.payload );//return all the posts that are not the one that was deleted
+      case 'LIKE':
+        return posts.map( (post) => post._id === action.payload._id ? action.payload : post);
       default:
         return posts;
    }

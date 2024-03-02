@@ -73,3 +73,19 @@ export const deletePostFn = (_id) => async (dispatch) => {
   }
 
 }
+
+export const likePostFn = (_id) => async (dispatch) => {
+
+  try {
+
+    const {data} = await api.likePosts(_id);//Liking posts from the api
+
+    dispatch({type: "LIKE", payload:data});
+
+  } catch (error) {
+
+    console.log(error.message);
+    
+  }
+
+}

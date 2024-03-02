@@ -1,7 +1,7 @@
 import React from "react";
 import  {useDispatch}  from "react-redux";
 
-import { deletePostFn} from "../../../actions/posts.js";
+import { deletePostFn, likePostFn} from "../../../actions/posts.js";
 
 import './style.css';
 // import img from "./miami.jpg";
@@ -16,6 +16,11 @@ import './style.css';
     const deleteHandler = () => {
         
         dispatch(deletePostFn(post._id));
+
+    }
+    const likeHandler = () => {
+
+        dispatch(likePostFn(post._id));
 
     }
 
@@ -35,9 +40,9 @@ import './style.css';
                 <h1 className="title">{post.title}</h1>
                 <p className="msg">{post.message}</p>
                 <div className="btn">
-                    <button className="like-btn">Like {post.likeCount} </button>
-                    <button className="delete-btn" onClick={  ()=>deleteHandler()  }>Delete</button>
-                    <button className="edit-btn" onClick={()=>editHandler()}>Edit</button>
+                    <button className="like-btn" onClick={ () => likeHandler() }>Like {post.likeCount} </button>
+                    <button className="delete-btn" onClick={  () => deleteHandler()  }>Delete</button>
+                    <button className="edit-btn" onClick={ () => editHandler() }>Edit</button>
                 </div>
             </div>
           
