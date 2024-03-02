@@ -24,6 +24,36 @@ import './style.css';
 
     }
 
+    const timeAgo = (createdAt) => {
+        const seconds = Math.floor(new Date().getTime() - new Date(createdAt).getTime()) / 1000;
+
+        const timeInterval = {
+            year: 31536000,
+            month: 2592000,
+            day: 86400,
+            hour: 3600,
+            minute: 60,
+            second: 1
+        }
+
+        if(seconds<timeInterval.minute){
+            return "Just now";
+        } else if (seconds < timeInterval.hour){
+            return Math.floor(seconds/timeInterval.minute) + " minutes ago";
+        } else if (seconds < timeInterval.day){
+            return Math.floor(seconds/timeInterval.hour) + " hours ago";
+        } else if (seconds < timeInterval.month){
+            return Math.floor(seconds/timeInterval.day) + " days ago";
+        } else if (seconds < timeInterval.year){
+            return Math.floor(seconds/timeInterval.month) + " months ago";
+        } else {
+            return Math.floor(seconds/timeInterval.year) + " years ago";
+        }
+
+    }
+        
+
+
     return(
         <>
        <div className="card">
@@ -32,7 +62,7 @@ import './style.css';
 
             <div className="create-detail">
                 <h3>{post.creator}</h3>
-                <h6>{post.createdAt}</h6>
+                <h6>{timeAgo(post.createdAt)}</h6>
             </div>
 
             <div className="post-detail">
