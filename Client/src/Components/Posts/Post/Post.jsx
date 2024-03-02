@@ -36,7 +36,7 @@ import './style.css';
             </div>
 
             <div className="post-detail">
-                <p className="tag">#{post.tags}</p>
+                <p className="tag">{post.tags.map( (tag)=>" #"+tag )}</p>
                 <h1 className="title">{post.title}</h1>
                 <p className="msg">{post.message}</p>
                 <div className="btn">

@@ -10,7 +10,7 @@ const Form = ( {updatePost, setUpdatePost} ) => {
 
     //usestates
     const [postData, setPostData] = useState({
-        "creator":'' , "title": '', "message": '', "tags": [], "selectedFile": ''
+        "creator":'' , "title": '', "message": '', "tags": '', "selectedFile": ''
     })
     //dispatch instance
     const dispatch = useDispatch();//dispatch is a function of the Redux store. You call store.dispatch to dispatch an action. This is the only way to trigger a state change.
@@ -46,7 +46,7 @@ const Form = ( {updatePost, setUpdatePost} ) => {
 
 
    const clearHandler = () => {
-    setPostData({ "creator":'' , "title": '', "message": '', "tags": [], "selectedFile": '' })
+    setPostData({ "creator":'' , "title": '', "message": '', "tags": '', "selectedFile": '' })
    }
 
 
@@ -70,7 +70,7 @@ const Form = ( {updatePost, setUpdatePost} ) => {
                     value={postData.message} onChange={(e) => setPostData({...postData, "message":e.target.value})}></input>
 
                     <input  className="tag" type="text" id="tags" name="tags" placeholder="Enter tags" 
-                    value={postData.tags} onChange={(e) => setPostData({...postData, "tags":e.target.value})}></input>
+                    value={postData.tags} onChange={(e) => setPostData({...postData, "tags":e.target.value.split(',')})}></input>
                    
                     <div className="file"> 
                     <FileBase
