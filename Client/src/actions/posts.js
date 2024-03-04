@@ -1,4 +1,7 @@
 import * as api from '../api';//importing everything from api folder
+import { FETCH_ALL, CREATE, UPDATE, DELETE, LIKE } from '../Constants/actionTypes.js'
+
+
 
 //Definition -->
 //Action Creators: Normally, action creators in Redux return plain action objects, which have a type property describing the action type and optionally a payload property with data. With Redux Thunk, action creators can return functions.
@@ -14,7 +17,7 @@ export const getPosts = () => async (dispatch) => {//getPosts is a function that
 
         const {data} =await api.fetchPosts();//fetching posts from the api
 
-        dispatch({type : "FETCH_ALL", payload: data});//dispatching an action with type and payload
+        dispatch({type :FETCH_ALL, payload: data});//dispatching an action with type and payload
 
     } catch (error) {
 
@@ -29,7 +32,7 @@ try {
 
     const {data} = await api.createPosts(post);//Creating posts from the api
 
-    dispatch({type: "CREATE", payload: data});
+    dispatch({type: CREATE, payload: data});
     
 } catch (error) {
     
@@ -47,7 +50,7 @@ export const updatePostFn = (_id, postData) => async (dispatch) => {
 
     console.log("data after update",data);
 
-    dispatch({type: "UPDATE", payload:data});
+    dispatch({type: UPDATE, payload:data});
 
   } catch (error) {
 
@@ -64,7 +67,7 @@ export const deletePostFn = (_id) => async (dispatch) => {
 
     console.log("ssss",data);
 
-    dispatch({type: "DELETE", payload:data._id});
+    dispatch({type: DELETE, payload:data._id});
 
   } catch (error) {
 
@@ -80,7 +83,7 @@ export const likePostFn = (_id) => async (dispatch) => {
 
     const {data} = await api.likePosts(_id);//Liking posts from the api
 
-    dispatch({type: "LIKE", payload:data});
+    dispatch({type: LIKE, payload:data});
 
   } catch (error) {
 
