@@ -13,10 +13,7 @@ const Navbar = () => {
  
  
  const Auth = () => {
-       
         
-        
-        //use it liek this
         navigate('/auth')//this will take you to the auth page
     }
 
