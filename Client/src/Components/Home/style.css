@@ -1,0 +1,35 @@
+body{
+    background-color: #282c34
+}
+
+
+
+.app-body{
+    display: flex;
+    flex-direction: row;
+    /* justify-content: space-between; */
+    /* align-items: center; */
+    position: relative;
+}
+/* phone size */
+@media screen and (max-width: 426px){
+    .app-body{
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+    }
+    .app-body .form{
+      width: 100%;
+    }
+}
+/* tab size */
+@media screen and (max-width: 769px){
+    .app-body{
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+    }
+    .app-body .form{
+        width: 100%;
+    }
+}
