@@ -42,7 +42,7 @@ const Auth = () => {
 
   return (
     //add your google auth client id here. wrap the entire code in.
-    <GoogleOAuthProvider clientId="16395911358-kq7dsg20ttum5gnjs9o8ohpma9jlocvb.apps.googleusercontent.com"> 
+    <GoogleOAuthProvider clientId=""> 
 
     
     <div className='auth-container'>
