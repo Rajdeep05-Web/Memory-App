@@ -1,13 +1,18 @@
 import React, {useState} from 'react'
-import {useDispatch} from 'react-redux'
+// import {useDispatch} from 'react-redux'
 import { GoogleOAuthProvider, GoogleLogin } from '@react-oauth/google';
+import {jwtDecode} from 'jwt-decode'
+
+import './style.css'
+
+// import {AUTH} from '../../Constants/actionTypes'
 
 
 
 const Auth = () => {
   const [isSignUp, setIsSignUp] = useState(true)
   const [showPass, setShowPass] = useState(false)
-  const dispatch = useDispatch()
+  // const dispatch = useDispatch()
 
 //form functions
   const submitHandler = (e) => {
@@ -25,20 +30,26 @@ const Auth = () => {
 
  
  //google auth success and failure functions
-  const googleSuccess = (res)=>{
-    const result = res?.profileObj
-    const token = res?.tokenId 
-    try {
-      dispatch( { type: 'AUTH', data: {result, token} } )
-    } catch (error) {
-      console.log(error)
-    }
+  const googleSuccess =async (res)=>{
+    console.log(res)
+
+    const decode = jwtDecode(res?.credential)
+    console.log(decode)
+    // const result = res?.profileObj
+    // const token = res?.tokenId 
+  //   try {
+  //     dispatch( { type: AUTH, data: {result, token} } )
+  //   } catch (error) {
+  //     console.log(error)
+  //   }
   }
 
-  const googleFailure = (error)=>{
+  const googleFailure =async (error)=>{
      console.log(error)
      console.log("Google OAuth failed. Try again later.")
   } 
+
+
 
   return (
     //add your google auth client id here. wrap the entire code in.
@@ -46,7 +57,7 @@ const Auth = () => {
 
     
     <div className='auth-container'>
-      <form className='auth-form' onSubmit={submitHandler}>
+      <form className='auth-form' onSubmit={submitHandler} >
         <h1> {isSignUp ? "Sign Up" : "Sign In"} </h1>
 
         { isSignUp &&
@@ -64,11 +75,16 @@ const Auth = () => {
         <button type='submit'>
           { isSignUp ? 'Sign Up' : 'Sign In' }
         </button>
-
+       
         <GoogleLogin
+        render={(renderProps) => (
+          <button onClick={renderProps.onClick} disabled={renderProps.disabled}>Google Sign In</button>
+        )}
         onSuccess={googleSuccess}
         onFailure={googleFailure}
+        cookiePolicy={'single_host_origin'}
         />
+
 
         <button onClick={switchMode}>
           {
@@ -79,7 +95,7 @@ const Auth = () => {
       </form>
     </div>
 
-    </GoogleOAuthProvider>
+     </GoogleOAuthProvider>
     )
 }
 

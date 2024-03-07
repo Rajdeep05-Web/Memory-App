@@ -1,6 +1,7 @@
 import React from 'react';
 import {createRoot} from 'react-dom/client';
 
+
 import {Provider} from 'react-redux';//import the Provider component from react-redux
 import {createStore, applyMiddleware, compose} from 'redux';//import the createStore function from redux
 import {thunk} from 'redux-thunk';//import the thunk middleware
@@ -18,10 +19,12 @@ const root = createRoot( document.getElementById('root') )//create a root and pa
 
 root.render(
 
-// wrap the App component with the Provider component and pass in the store
+/* // wrap the App component with the Provider component and pass in the store */
 <Provider store={store}>
     <App/>
 </Provider>
+
+
 
 )
 
