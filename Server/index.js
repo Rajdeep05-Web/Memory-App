@@ -11,6 +11,8 @@ import connectDB from './src/DB/index.js';
 
 //import routes
 import PostsRoute from './src/Routes/Posts.Route.js';
+import UserRoute from './src/Routes/User.Route.js';
+import User from './src/Models/User.js';
 
 //middlewares
 const app = express();
@@ -24,6 +26,15 @@ app.use(PostsRoute);
 
 app.get('/',PostsRoute);
 app.post('/',PostsRoute);
+
+
+
+app.use(UserRoute);
+
+app.get('/',UserRoute);
+app.post('/',UserRoute);
+
+
 
 
 

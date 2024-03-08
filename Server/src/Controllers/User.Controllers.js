@@ -6,7 +6,7 @@ import jwt from 'jsonwebtoken'
 import UserModel from '../Models/User.js'
 
 
-export const signUP = async ( req, res) => {
+export const signUp = async ( req, res) => {
 
   const { email, password, confirmPassword, firstName, lastName } = req.body;
 
@@ -21,7 +21,7 @@ export const signUP = async ( req, res) => {
 
     const hashedPassword = await bcrypt.hash(password, 12); //12 is the salt(difficulty level) //hash the password
 
-    const result = UserModel.create({email, password: hashedPassword, name: `${firstName} ${lastName}`});
+    const result = await UserModel.create({email, password: hashedPassword, name: `${firstName} ${lastName}`});
 
     const token = jwt.sign({email: result.email, id: result._id}, 'secretString' , {expiresIn: "1h"});//expires in 1 hour
 
