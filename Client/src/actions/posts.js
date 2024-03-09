@@ -6,9 +6,10 @@ import { FETCH_ALL, CREATE, UPDATE, DELETE, LIKE } from '../Constants/actionType
 //Definition -->
 //Action Creators: Normally, action creators in Redux return plain action objects, which have a type property describing the action type and optionally a payload property with data. With Redux Thunk, action creators can return functions.
 
-//Usage in the code -->
+//Usage in the code -------------->
 
 // Action Creators - Used thunk to make async requests. Without thunk, we would not be able to make async requests.
+
 //Redux Thunk is a middleware that allows you to write action creators that return a function instead of an action. The thunk can be used to delay the dispatch
 //of an action, or to dispatch only if a certain condition is met.
 export const getPosts = () => async (dispatch) => {//getPosts is a function that returns another function that takes in dispatch as an argument
