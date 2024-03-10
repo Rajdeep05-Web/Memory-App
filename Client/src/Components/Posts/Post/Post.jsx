@@ -61,7 +61,7 @@ import './style.css';
             <img className="img" src={post.selectedFile} alt="memory iamge" height={100} width={100}></img>
 
             <div className="create-detail">
-                <h3>{post.creator}</h3>
+                <h3>{post.name}</h3>
                 <h6>{timeAgo(post.createdAt)}</h6>
             </div>
 
