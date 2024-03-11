@@ -7,6 +7,8 @@ import memories from "../../images/memories.png";
 //style
 import './style.css';
 
+// import {getPosts} from '../../actions/posts';
+
 const Navbar = () => {
     
 
@@ -20,16 +22,18 @@ const [user, setUser] = useState(null);//getting the user from the local storage
 
      setUser(JSON.parse(localStorage.getItem('profile')))//getting the user from the local storage
 
- },[location])//whenever the location changes the useEffect will run
-
+    },[location])//whenever the location changes the useEffect will run
+    // useEffect(() => {
+    //   dispatch(getPosts());
+    // })
  const Auth = () => {
-        
-        navigate('/auth')//this will take you to the auth page
-    }
-    const handlelogout = () => {
-        dispatch({type: 'LOGOUT'});//dispatching an action with type LOGOUT
-        setUser(null);//setting the user to null
-    }
+   
+   navigate('/auth')//this will take you to the auth page
+  }
+  const handlelogout = () => {
+    dispatch({type: 'LOGOUT'});//dispatching an action with type LOGOUT
+    setUser(null);//setting the user to null
+  }
 
     return (
         <section className="app-bar">
@@ -51,7 +55,7 @@ const [user, setUser] = useState(null);//getting the user from the local storage
                        </div>
                 ) : (
                    
-                        <button onClick={Auth} className='sign-btn btn'>Sign In</button>
+                        <button onClick={Auth} className='sign-btn btn'>Sign Up</button>
                  
                 )
             }

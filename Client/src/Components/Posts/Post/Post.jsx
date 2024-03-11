@@ -1,6 +1,7 @@
 import React from "react";
 import  {useDispatch}  from "react-redux";
 
+
 import { deletePostFn, likePostFn} from "../../../actions/posts.js";
 
 import './style.css';
@@ -9,6 +10,7 @@ import './style.css';
  const Post = ({post, setUpdatePost}) => {
 
     const dispatch = useDispatch();
+    const user = JSON.parse(localStorage.getItem('profile'));
 
     const editHandler = () => {
         setUpdatePost(post);
@@ -69,11 +71,18 @@ import './style.css';
                 <p className="tag">{post.tags.map( (tag)=>" #"+tag )}</p>
                 <h1 className="title">{post.title}</h1>
                 <p className="msg">{post.message}</p>
+               
                 <div className="btn">
-                    <button className="like-btn" onClick={ () => likeHandler() }>Like {post.likeCount} </button>
+                <button className="like-btn" onClick={ () => likeHandler() }>Like {post.likes.length} </button>
+
+                { (user?.result?._id || user?.result?.sub) === post.creator &&  
+                    <>
                     <button className="delete-btn" onClick={  () => deleteHandler()  }>Delete</button>
                     <button className="edit-btn" onClick={ () => editHandler() }>Edit</button>
-                </div>
+                    </> }
+
+                </div> 
+
             </div>
           
        </div>

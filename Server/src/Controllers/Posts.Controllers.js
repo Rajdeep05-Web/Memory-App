@@ -85,7 +85,7 @@ export const likePost = async (req, res) => {
 
    const  { id :_id } = req.params;
 
-   if(!req.userTd) return res.json({message: 'Unauthenticated'});//check if the user is authenticated (logged in)
+   if(!req.userId) return res.json({message: 'Unauthenticated'});//check if the user is authenticated (logged in)
 
    if(!mongoose.Types.ObjectId.isValid(_id)) return res.status(404).send('No post with that id');//check if the id is valid
 
@@ -93,7 +93,7 @@ export const likePost = async (req, res) => {
 
    const post = await PostMessageModel.findById(_id);
 
-   const index = post.likes.findIndex((id) => id === String(req.userId));//check if the user has already liked the post
+   const index = post.likes.findIndex((id) => id === req.userId);//check if the user has already liked the post
 
    if(index === -1){//if the user not ound in the likes[]
 
@@ -103,13 +103,13 @@ export const likePost = async (req, res) => {
    } else {
 
       //user liked once -> so now user clicked btn to unlike
-      post.likes = post.likes.filter( (id)=> id !== String(req.userId) )
+      post.likes = post.likes.filter( (id)=> id !== req.userId )
 
    }
 
    const updatedPost = await PostMessageModel.findByIdAndUpdate(
-         {_id},//criteria
-         {post},//update the post by new post with updated likes
+         _id,//criteria
+         post,//update the post by new post with updated likes
          {new: true}//returns updated post
       )
 
