@@ -8,7 +8,7 @@ import {jwtDecode} from 'jwt-decode'
 
 //style
 import './style.css'
-
+import {GOOGLE_CLIENT_ID} from '../../Constants/basicConstants'
 //actions
 import {userSignIn, userSignUp} from '../../actions/auth';
 
@@ -87,14 +87,14 @@ const Auth = () => {
 
   return (
   
-    <GoogleOAuthProvider clientId="16395911358-kq7dsg20ttum5gnjs9o8ohpma9jlocvb.apps.googleusercontent.com"> 
+    <GoogleOAuthProvider clientId={GOOGLE_CLIENT_ID}> 
 
     
     <div className='auth-container'>
 
       <form className='auth-form' onSubmit={submitHandler} >
       
-        <h1> {isSignUp ? "Sign Up" : "Sign In"} </h1>
+        <h1 className='form-heading'> {isSignUp ? "Sign Up" : "Sign In"} </h1>
 
         { isSignUp &&
          (
@@ -103,14 +103,25 @@ const Auth = () => {
         )}
 
         <input type='email' placeholder='Email' name='email' onChange={hadleChange} />
-        <input type={showPass ? "text" : "password"} placeholder='Password'  name='password' required onChange={hadleChange} />
-        <input type='checkbox' onClick={handleShowPassword} id='showPass'/> <label htmlFor="showPass">Show Password</label>
 
-        { isSignUp && <input type={showPass ? "text" : "password"} name='confirmPassword'  placeholder='Confirm Password' required onChange={hadleChange}/> }
-        <input type='checkbox' onClick={handleShowPassword} id='confirmShowPass'/> <label htmlFor="showPass">Show Password</label>
+        <div className="pass-container">
+        <input type={showPass ? "text" : "password"} placeholder='Password' className='pass' name='password' required onChange={hadleChange} />
+        {/* <input type='checkbox' onClick={handleShowPassword} id='showPass' className='pass-visibility'/>  */}
+        {/* <label htmlFor="showPass">Show Password</label> */}
+        </div>
 
-        <button type='submit'> { isSignUp ? 'Sign Up' : 'Sign In' } </button>
+        { isSignUp &&
+         <div className="pass-container">
+        <input type={showPass ? "text" : "password"} name='confirmPassword' className='pass' placeholder='Confirm Password' required onChange={hadleChange}/>
+        {/* <input type='checkbox' onClick={handleShowPassword} id='confirmShowPass' className='pass-visibility'/>  */}
+         </div>
+        // <label htmlFor="showPass">Show Password</label>/> 
+        }
+
+        <button type='submit' className='submit-form'> { isSignUp ? 'Sign Up' : 'Sign In' } </button>
        
+       <div className="Oauth">
+
         <GoogleLogin
         render={(renderProps) => (
           <button onClick={renderProps.onClick} disabled={renderProps.disabled}>Google Sign In</button>
@@ -119,11 +130,12 @@ const Auth = () => {
         onFailure={googleFailure}
         cookiePolicy={'single_host_origin'}
         />
+       </div>
       
     
 
 
-        <button onClick={switchMode}> { isSignUp ? 'Already have an account? Sign In' : 'Don\'t have an account? Sign Up' } </button>
+        <button className='alternate-btn' onClick={switchMode}> { isSignUp ? 'Already have an account? Sign In' : 'Don\'t have an account? Sign Up' } </button>
 
       </form>
     </div>

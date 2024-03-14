@@ -1,0 +1,89 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.auth-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100% ;
+    margin: auto;
+    background-color: #1E1E1E;
+}
+/* //form styling */
+.auth-container > form{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgb(78, 78, 78);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    justify-content: space-around;
+    gap:10px;
+    width: 300px;
+    background-color: #323232;
+}
+
+form > .form-heading{
+    font-size: 1.5rem;
+    color: #fff;
+    margin-bottom: 10px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 500;
+ }
+
+.auth-container > form input{
+    height: 40px;
+    width: 100%;
+    padding: 10px;
+    background-color: #1E1E1E;
+    border:none;
+    border-radius: 5px ;
+    color: #e2e2e2;
+    
+}
+
+form > .pass-container{
+    display: flex;
+    justify-content: space-between;
+    /* align-items: center; */
+    margin: 0;
+    gap: 5px;
+}
+form .pass-container .pass-visibility{
+    height: 40px;
+    width: 10%;
+    background-color: #1E1E1E;
+}
+
+input[type='checkbox'] {
+    accent-color: rgb(35, 35, 35);
+}
+
+form > .submit-form{
+    padding: 10px;
+    background-color: #737373;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 5px;
+}
+form > .submit-form:hover{
+    background-color: #4d4d4d;
+    cursor: pointer;
+}
+form > .Oauth{
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+    /* margin-top: 10px; */
+}
+form > .alternate-btn{
+    padding: 5px;
+    background-color: #323232;
+    color: #d3d3d3;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+}

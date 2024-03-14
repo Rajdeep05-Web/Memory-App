@@ -4,7 +4,6 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 //components
 import Home from "./Components/Home/Home";
-import Navbar from "./Components/Navbar/Navbar";
 import Auth from "./Components/Auth/Auth";
 
 //style
@@ -13,8 +12,9 @@ import './App.css'
 
 
 const App = () => {
+   
+    //const user = JSON.parse( localStorage.getItem('profile') )//get the user from the local storage and then parse it to a javascript object using JSON
 
-  
     return (
 
       <BrowserRouter> 
@@ -22,11 +22,11 @@ const App = () => {
             <div className="App">
             <div className="container">
 
-                <Navbar />
+               
 
                 <Routes>
                 <Route path='/' element={<Home/>} />
-                <Route path='/auth' element={<Auth/>} />
+                <Route path='/auth' element={ <Auth/> } />
               </Routes>
                
               

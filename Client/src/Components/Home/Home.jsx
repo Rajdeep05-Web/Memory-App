@@ -4,6 +4,7 @@ import {useDispatch} from "react-redux";
 //components
 import Posts from "../Posts/Posts";
 import Form from "../Forms/Form";
+import Navbar from "../Navbar/Navbar";
 
 //style
 import './style.css'
@@ -24,6 +25,10 @@ const Home = () => {
   
   
     return(
+     <>
+
+        <Navbar />  
+
         <section className="app-body">
 
           <section className="posts">
@@ -39,6 +44,8 @@ const Home = () => {
           </section>
 
         </section>
+
+        </>
     )
 }
 

@@ -66,7 +66,7 @@ const [user, setUser] = useState(null);//getting the user from the local storage
 
                         <h3 id='user-name'>{user.result.name}</h3>
                        
-                        <button onClick={handlelogout} className='logout-btn btn'>Log out</button>
+                        <button onClick={handlelogout} className='btn logout-btn '>Log out</button>
                  
                        </div>
                 ) : (

@@ -5,6 +5,7 @@
 /.pnp
 .pnp.js
 /README.md
+src/Constants/basicConstants.js
 
 
 # testing
