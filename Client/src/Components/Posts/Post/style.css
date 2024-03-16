@@ -1,11 +1,9 @@
 .card{
-    /* border: 1px solid green; */
-    /* height: 500px; */
     flex:0;
     flex-basis: 300px;
     margin: 20px;
     border-radius: 10px;
-    background-color:rgb(242, 245, 255) ;
+    background-color:#333333 ;
     font-family: 'verdana';
     position: relative;
 
@@ -23,7 +21,7 @@
 .create-detail{
     position: absolute;
     top: 0px;
-    color: white;
+    color: #FFFFFF;
     left: 20px;
     margin: 20px 0px;
     width: 150px;
@@ -61,12 +59,13 @@
     font-size: 20px;
     font-weight: 700;
     margin: 20px 0px;
-
+    color: #ececec;
 }
 .card .post-detail .msg{
     font-size: 16px;
     font-weight: 400;
     margin: 20px 0px;
+    color: #c6c6c6;
 }
 
 
@@ -96,3 +95,13 @@
     border: none;
     cursor: pointer;
 }
+
+.card .btn .edit-btn{
+    background-color: #DEDEDE;
+    color: rgb(61, 61, 61);
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+    

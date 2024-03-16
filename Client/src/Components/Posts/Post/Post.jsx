@@ -77,8 +77,8 @@ import './style.css';
 
                 { (user?.result?._id || user?.result?.sub) === post.creator &&  
                     <>
-                    <button className="delete-btn" onClick={  () => deleteHandler()  }>Delete</button>
                     <button className="edit-btn" onClick={ () => editHandler() }>Edit</button>
+                    <button className="delete-btn" onClick={  () => deleteHandler()  }>Delete</button>
                     </> }
 
                 </div> 

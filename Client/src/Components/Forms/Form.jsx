@@ -60,7 +60,7 @@ const Form = ( {updatePost, setUpdatePost} ) => {
     if(!user?.result?.name){  //if the user is not logged in
         return(
             <div className="form-contaner">
-                <h2>Please sign in to create your own memories and like other's memories</h2>
+                <h2 className="no-user">Please sign in to create your own memories and like other's memories</h2>
             </div>
         )
     }
