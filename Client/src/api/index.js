@@ -20,6 +20,8 @@ API.interceptors.request.use((req) => {
 //post APIs
 export const fetchPosts = () => API.get("/get");//fetching posts from the api
 
+export const fetchPost = (id) => API.get(`/getpost/${id}`);//fetching a single post from the api
+
 export const fetchPostsBySearch = (searchQuery) => API.get(`/posts/search?searchQuery=${searchQuery || 'none'}`);//fetching posts by search query from the api
 
 export const createPosts = (newPost) => API.post("/post", newPost);//Creating posts from the api

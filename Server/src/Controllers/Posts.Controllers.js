@@ -14,6 +14,19 @@ export const getPosts =async (req, res) => {
    }
 }
 
+export const getPost = async (req, res) => {
+   const id = req.params.id;
+
+   try {
+      const post = await PostMessageModel.findById(id);
+      console.log(post);
+      res.json(post).status(200);
+   } catch (error) {
+      console.log(error);
+      res.status(404).json({message: error});
+   }
+}
+
 export const getPostsBySearch = async (req, res) => {
 
    const {searchQuery} = req.query;

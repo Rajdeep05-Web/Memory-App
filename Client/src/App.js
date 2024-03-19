@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 //components
 import Home from "./Components/Home/Home";
 import Auth from "./Components/Auth/Auth";
+import PostDetails from "./Components/PostDetails/PostDetails";
 
 //style
 import './App.css'
@@ -28,6 +29,7 @@ const App = () => {
                 <Route path='/' element={<Home/>} />
                 <Route path='/auth' element={ <Auth/> } />
                 <Route path='/posts/search' element={ <Home/> } />
+                <Route path='/postdetails/:id' element={ <PostDetails/> } />
               </Routes>
                
               

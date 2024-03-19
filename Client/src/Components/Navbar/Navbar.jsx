@@ -60,6 +60,7 @@ const [user, setUser] = useState(null);//getting the user from the local storage
 
             handlelogout();//if the token is expired then logout the user
             alert('Your session has expired. Please login again');
+            Auth();
 
          }
 

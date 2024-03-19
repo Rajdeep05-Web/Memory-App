@@ -1,5 +1,6 @@
 import React from "react";
 import  {useDispatch}  from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 
 import { deletePostFn, likePostFn} from "../../../actions/posts.js";
@@ -10,6 +11,7 @@ import emptyimg from "../../../images/emptyimg.jpg";
  const Post = ({post, setUpdatePost}) => {
 
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     const user = JSON.parse(localStorage.getItem('profile'));
 
     const editHandler = () => {
@@ -24,6 +26,9 @@ import emptyimg from "../../../images/emptyimg.jpg";
 
         dispatch(likePostFn(post._id));
 
+    }
+    const cardHandler = (post) => {
+        navigate(`/postdetails/${post._id}`);
     }
 
     const timeAgo = (createdAt) => {
@@ -58,7 +63,7 @@ import emptyimg from "../../../images/emptyimg.jpg";
 
     return(
         <>
-       <div className="card">
+       <div className="card" onClick={ ()=> cardHandler(post) }>
           
             <img className="img" src={post.selectedFile === ""? emptyimg: post.selectedFile} alt="memory iamge" height={100} width={100}></img>
 

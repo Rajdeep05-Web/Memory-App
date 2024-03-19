@@ -11,9 +11,8 @@ import Post from "./Post/Post";//importing the Post component
  const Posts = ({setUpdatePost}) => {
 
     //using the useSelector hook to get the posts from the state store of redux(where the all posts are stored in redux )(redux main facility)
-    const posts = useSelector( (state) => state.posts )
-   
-
+    const {posts} = useSelector( (state) => state.posts )
+    
     return(
         <>
         <div className="posts">
