@@ -5,7 +5,7 @@ import  {useDispatch}  from "react-redux";
 import { deletePostFn, likePostFn} from "../../../actions/posts.js";
 
 import './style.css';
-// import img from "./miami.jpg";
+import emptyimg from "../../../images/emptyimg.jpg";
 
  const Post = ({post, setUpdatePost}) => {
 
@@ -60,7 +60,7 @@ import './style.css';
         <>
        <div className="card">
           
-            <img className="img" src={post.selectedFile} alt="memory iamge" height={100} width={100}></img>
+            <img className="img" src={post.selectedFile === ""? emptyimg: post.selectedFile} alt="memory iamge" height={100} width={100}></img>
 
             <div className="create-detail">
                 <h3>{post.name}</h3>

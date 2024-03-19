@@ -24,12 +24,19 @@ const [user, setUser] = useState(null);//getting the user from the local storage
    
    navigate('/auth')//this will take you to the auth page
   }
+
   //log out the user
   const handlelogout = () => {
+
     dispatch({type: 'LOGOUT'});//dispatching an action with type LOGOUT
+
     setUser(null);//setting the user to null
+
     window.location.reload();
+
   }
+
+
   //getting the user from the local storage when the url changes auth to home page after signpu/login
   useEffect(() => {
 
@@ -39,17 +46,26 @@ const [user, setUser] = useState(null);//getting the user from the local storage
     
     //token expiration
     useEffect(()=>{
+
       const token = user?.token;//getting the token from the user
+
       if(token){
+
         const decodedToken = jwtDecode(token);//decoding the token
+
         // console.log(decodedToken.exp * 1000);
         // console.log(new Date().getTime());
-         if(decodedToken.exp*1000 < new Date().getTime()){
-            handlelogout();//if the token is expired then logout the user
-         }
-      }
-    })
 
+         if(decodedToken.exp*1000 < new Date().getTime()){
+
+            handlelogout();//if the token is expired then logout the user
+            alert('Your session has expired. Please login again');
+
+         }
+
+      }
+
+    })
 
     return (
         <section className="app-bar">

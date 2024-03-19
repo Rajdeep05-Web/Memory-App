@@ -1,3 +1,4 @@
+
 import PostMessageModel from "../Models/PostMessage.js";
 import mongoose from "mongoose";
 
@@ -13,7 +14,27 @@ export const getPosts =async (req, res) => {
    }
 }
 
+export const getPostsBySearch = async (req, res) => {
 
+   const {searchQuery} = req.query;
+   try {
+      // console.log(typeof(searchQuery))
+      //reg. expression to search for the title in any character case
+      const title = new RegExp(searchQuery, "i");//i -> case insensitive
+
+      const posts = await PostMessageModel.find({ $or: [ {title}, {tags: { $in: searchQuery.split(",") } } ] }); //searching for the title and tags in the posts
+
+       console.log(posts);
+
+      res.json(posts).status(200);
+
+   } catch (error) {
+
+      console.log(error);
+      res.status(404).json({message: error});
+      
+   }
+}
 
 export const createPost = async (req, res) => {
 

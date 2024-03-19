@@ -1,5 +1,5 @@
 import * as api from '../api';//importing everything from api folder
-import { FETCH_ALL, CREATE, UPDATE, DELETE, LIKE } from '../Constants/actionTypes.js'
+import { FETCH_ALL, CREATE, UPDATE, DELETE, LIKE, FETCH_BY_SEARCH } from '../Constants/actionTypes.js'
 
 
 
@@ -92,4 +92,19 @@ export const likePostFn = (_id) => async (dispatch) => {
     
   }
 
+}
+
+export const searchPostFn = (searchQuery) => async (dispatch) => {
+  try {
+    
+     const  {data} =await api.fetchPostsBySearch(searchQuery);//fetching posts from the api
+
+     dispatch({type :FETCH_BY_SEARCH, payload: data});//dispatching an action with type and payload
+
+     
+    } catch (error) {
+      
+      console.log(error);
+
+  }
 }

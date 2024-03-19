@@ -83,7 +83,7 @@ const Form = ( {updatePost, setUpdatePost} ) => {
                     value={postData.message} onChange={(e) => setPostData({...postData, "message":e.target.value})}></input>
 
                     <input  className="tag" type="text" id="tags" name="tags" placeholder="Enter tags" 
-                    value={postData.tags} onChange={(e) => setPostData({...postData, "tags":e.target.value.split(',')})}></input>
+                    value={postData.tags} onChange={(e) => setPostData({...postData, "tags":e.target.value.replace(/\s/g, "").split(',')})}></input>
                    
                     <div className="file"> 
                     <FileBase

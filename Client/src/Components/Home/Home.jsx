@@ -5,6 +5,7 @@ import {useDispatch} from "react-redux";
 import Posts from "../Posts/Posts";
 import Form from "../Forms/Form";
 import Navbar from "../Navbar/Navbar";
+import Search from "../Search/Search";
 
 //style
 import './style.css'
@@ -38,6 +39,8 @@ const Home = () => {
           </section>
 
           <section className="form">
+
+            <Search />
 
             <Form updatePost={updatePost} setUpdatePost={setUpdatePost}/>
 
