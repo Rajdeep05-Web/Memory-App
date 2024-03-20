@@ -33,7 +33,6 @@ export const getPost = (id) => async (dispatch) => {
 
     const {data} = await api.fetchPost(id);//fetching post from the api
 
-    // console.log(data);
 
     dispatch({type :FETCH_POST, payload: data});//dispatching an action with type and payload
 

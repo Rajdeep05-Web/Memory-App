@@ -27,7 +27,7 @@ import emptyimg from "../../../images/emptyimg.jpg";
         dispatch(likePostFn(post._id));
 
     }
-    const cardHandler = (post) => {
+    const postOpener = (post) => {
         navigate(`/postdetails/${post._id}`);
     }
 
@@ -63,9 +63,9 @@ import emptyimg from "../../../images/emptyimg.jpg";
 
     return(
         <>
-       <div className="card" onClick={ ()=> cardHandler(post) }>
+       <div className="card">
           
-            <img className="img" src={post.selectedFile === ""? emptyimg: post.selectedFile} alt="memory iamge" height={100} width={100}></img>
+            <img className="img" onClick={ ()=> postOpener(post)} src={post.selectedFile === ""? emptyimg: post.selectedFile} alt="memory iamge" height={100} width={100}></img>
 
             <div className="create-detail">
                 <h3>{post.name}</h3>

@@ -3,7 +3,7 @@ import { FETCH_ALL, CREATE, UPDATE, DELETE, LIKE, FETCH_BY_SEARCH, FETCH_POST} f
 
 //posts state is an array of posts and the action is an object that has a type and payload(data)
 //posts state is initialized to an empty array bc if there are no posts, the app should not crash
-const reducer = (state = {posts : [], post:{}} , action) =>  {
+const reducer = (state = { posts : [] } , action) =>  {
    switch(action.type){
       case UPDATE:
         return {...state, posts : state.posts.map((post) => post._id === action.payload._id ? action.payload : post)};
